@@ -105,11 +105,11 @@ window.addEventListener("DOMContentLoaded", function startPageEvent() {
             element.src = elementSrc;
             li.appendChild(element);
         }
-        createListFunction('input', 'up', 'listProjFol/UpArrow.png');
-        createListFunction('input', 'down', 'listProjFol/DownArrow.png');
-        createListFunction('input', 'remove', 'listProjFol/RemoveBtn.png');
-        createListFunction('input', 'edit', 'listProjFol/editBtn.png' );
-        createListFunction('input', 'save', 'listProjFol/saveBtn.png');
+        createListFunction('input', 'up', 'images/UpArrow.png');
+        createListFunction('input', 'down', 'images/DownArrow.png');
+        createListFunction('input', 'remove', 'images/RemoveBtn.png');
+        createListFunction('input', 'edit', 'images/editBtn.png' );
+        createListFunction('input', 'save', 'images/saveBtn.png');
 
         const tickBox = document.createElement('input')
         tickBox.type = 'checkbox';
