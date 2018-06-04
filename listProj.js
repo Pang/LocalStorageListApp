@@ -297,7 +297,7 @@ window.addEventListener("DOMContentLoaded", function startPageEvent() {
         li.appendChild(span);
 
         let listItemValue = upperFirst(inputBox.value);
-        span.textContent = listItemValue
+        span.textContent = listItemValue.trim();
 
         //checks item is not already on list
         for(i=0;i<listItems.length;i++){
