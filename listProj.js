@@ -251,6 +251,7 @@ window.addEventListener("DOMContentLoaded", function startPageEvent() {
                     listItems[i].querySelector('.edit').style.display = "inline-block";
                 }
             }
+            document.querySelector('header').querySelector('#newTitleEdit').style.display = "inline-block";
         }
         else {
             for(i = 0; i < listItems.length; i++){
@@ -258,6 +259,7 @@ window.addEventListener("DOMContentLoaded", function startPageEvent() {
                 listItems[i].querySelector('.down').style.display = "none";
                 listItems[i].querySelector('.edit').style.display = "none";
             }
+            document.querySelector('header').querySelector('#newTitleEdit').style.display = "none";
         }
     }
 
