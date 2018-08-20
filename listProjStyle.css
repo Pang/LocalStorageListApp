@@ -100,7 +100,7 @@ li:nth-child(even){
 }
 
 li.ticked {
-    background-color: rgb(212, 212, 212);
+    background-color: rgb(165, 165, 165);
     text-decoration: line-through;
 }
 

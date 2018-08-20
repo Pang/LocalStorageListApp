@@ -58,6 +58,10 @@ window.addEventListener("DOMContentLoaded", function startPageEvent() {
             if (entries[i].ticked == true){
                 document.querySelectorAll('.tickBox')[i].checked = true;
                 li.className = 'ticked';
+
+                li.querySelector('.edit').style.display = 'none';
+                    li.querySelector('.up').style.display = 'none';
+                    li.querySelector('.down').style.display = 'none';
             }
         }
     }
@@ -135,6 +139,7 @@ window.addEventListener("DOMContentLoaded", function startPageEvent() {
         let prevContent = span.id;
 
         if(x.target.tagName == 'INPUT'){
+            
             if(x.target.className == 'up'){
                 let prevLi = li.previousElementSibling;
                 if(prevLi){
@@ -183,7 +188,6 @@ window.addEventListener("DOMContentLoaded", function startPageEvent() {
                 li.querySelector('.save').style.display = 'none';
                 li.querySelector('.tickBox').style.display = 'inline-block';
 
-
                 const input = li.firstElementChild;
                 const span = document.createElement('span');
                 let upper = upperFirst(input.value);
@@ -200,20 +204,35 @@ window.addEventListener("DOMContentLoaded", function startPageEvent() {
                 li.removeChild(input);
                 li.querySelector('.tickBox').value = upper;
                 saveEntry(entries);
-                minimalModeCheck();
+                if (!showEditButtons) {
+                    minimalModeCheck();
+                }
             }
         }
+
         //Checks entries are ticked and swaps the class for appropriate CSS change.
         if (x.target.className == 'tickBox'){
             for (i = 0; i < entries.length; i++){
                 if (entries[i].name == x.target.value && x.target.checked){
                     li.className = 'ticked';
                     entries[i].ticked = true;
+    
+                    li.querySelector('.edit').style.display = 'none';
+                    li.querySelector('.up').style.display = 'none';
+                    li.querySelector('.down').style.display = 'none';
+    
                     saveEntry(entries);
                 }
-                if (entries[i].name == x.target.value && !x.target.checked) {
+                else if (entries[i].name == x.target.value && !x.target.checked) {
                     li.className = ' ';
                     entries[i].ticked = false;
+                    
+                    if(showEditButtons){
+                        li.querySelector('.edit').style.display = 'inline-block';
+                        li.querySelector('.up').style.display = 'inline-block';
+                        li.querySelector('.down').style.display = 'inline-block';
+                    }
+
                     saveEntry(entries);
                 }
             }
@@ -225,20 +244,21 @@ window.addEventListener("DOMContentLoaded", function startPageEvent() {
 
     function minimalModeCheck(){
       if(showEditButtons){
-        document.querySelectorAll('input')
-        $('.up').show();
-        $('.down').show();
-        $('.edit').show();
-        $('#newTitleEdit').show();
-        $('.orderList').show();
+            for(i = 0; i < listItems.length; i++){
+                if(listItems[i].className != "ticked"){
+                    listItems[i].querySelector('.up').style.display = "inline-block";
+                    listItems[i].querySelector('.down').style.display = "inline-block";
+                    listItems[i].querySelector('.edit').style.display = "inline-block";
+                }
+            }
         }
         else {
-        $('.up').hide();
-        $('.down').hide();
-        $('.edit').hide();
-        $('#newTitleEdit').hide();
-        $('.orderList').hide();
-      }
+            for(i = 0; i < listItems.length; i++){
+                listItems[i].querySelector('.up').style.display = "none";
+                listItems[i].querySelector('.down').style.display = "none";
+                listItems[i].querySelector('.edit').style.display = "none";
+            }
+        }
     }
 
     $('#toggleBtnOff').on('click', () => {
