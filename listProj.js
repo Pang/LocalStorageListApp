@@ -92,7 +92,6 @@ window.addEventListener("DOMContentLoaded", function startPageEvent() {
     loadEntries();
     listEntries();
     titleLoad();
-
     saveListOrder();
 
     //Creates & appends buttons to each list item.
@@ -105,17 +104,24 @@ window.addEventListener("DOMContentLoaded", function startPageEvent() {
             element.src = elementSrc;
             li.appendChild(element);
         }
-        createListFunction('input', 'up', 'images/UpArrow.png');
-        createListFunction('input', 'down', 'images/DownArrow.png');
-        createListFunction('input', 'remove', 'images/RemoveBtn.png');
-        createListFunction('input', 'edit', 'images/editBtn.png' );
-        createListFunction('input', 'save', 'images/saveBtn.png');
 
         const tickBox = document.createElement('input')
         tickBox.type = 'checkbox';
         tickBox.className = 'tickBox';
         li.appendChild(tickBox);
         tickBox.value = tickBox.parentNode.textContent;
+
+        createListFunction('input', 'remove', 'images/RemoveBtn.png');
+
+        li.innerHTML = li.innerHTML + "<br />";
+
+        createListFunction('input', 'up', 'images/UpArrow.png');
+        createListFunction('input', 'down', 'images/DownArrow.png');
+        
+        createListFunction('input', 'edit', 'images/editBtn.png' );
+        createListFunction('input', 'save', 'images/saveBtn.png');
+
+
     }
 
     //All new entries will use this to capitalize the first letter
@@ -153,7 +159,7 @@ window.addEventListener("DOMContentLoaded", function startPageEvent() {
             }
             if(x.target.className == 'edit'){
                 li.querySelector('.edit').style.display = 'none';
-                li.querySelector('.save').style.display = 'block';
+                li.querySelector('.save').style.display = 'inline-block';
                 li.querySelector('.tickBox').style.display = 'none';
                 li.id = 'editting';
 
@@ -173,7 +179,7 @@ window.addEventListener("DOMContentLoaded", function startPageEvent() {
                 localStorage.removeItem(prevContent);
             }
             if (x.target.className == 'save'){
-                li.querySelector('.edit').style.display = 'block';
+                li.querySelector('.edit').style.display = 'inline-block';
                 li.querySelector('.save').style.display = 'none';
                 li.querySelector('.tickBox').style.display = 'inline-block';
 
