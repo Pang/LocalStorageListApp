@@ -6,15 +6,15 @@ body {
 }
 
 h1 {
+    display: block;
     margin-top:0px;
-    text-align: center;
     display: inline-block;
-    margin-left: 25%;
 }
 
 header {
-  text-align: center;
-  margin-left: 15%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #newTitleEdit  {
@@ -30,9 +30,7 @@ button {
     position: relative;
     top: -6px;
     color: rgb(255, 255, 255);
-    border: solid rgb(82, 82, 82) 1px;
-    border-radius: 6px;
-    margin: 2px;
+    border-radius: 4px;
     padding: 5px 5px;
     font-weight: bold;
 }
@@ -47,20 +45,32 @@ input.save {
     display:none;
 }
 
+input[type="checkbox"]{
+    width: 15px; /*Desired width*/
+    height: 15px; /*Desired height*/
+  }
+
 button.newItem  {
-    background-color:  rgb(113, 137, 153);
+    background-color:  rgb(116, 153, 113);
+    border: none;
     width: 150px;
     font-size: 20px;
     text-align: center;
+    cursor: pointer;
 }
 
 button.newItem:hover {
-    background-color: rgb(130, 156, 173);
+    background-color: rgb(133, 173, 130);
 }
 
 button.orderList {
+    display: inline-block;
     background-color: rgb(165, 154, 104);
     text-align: center;
+    cursor: pointer;
+    border: none;
+    width: 50px;
+    top: -12px;
 }
 
 button.orderList:hover {
@@ -80,6 +90,12 @@ button.orderList:hover {
 
 input {
     padding: 4px;
+}
+
+.newValue {
+    width: 250px;
+    height: 30px;
+    font-size: 24px;
 }
 
 ul {
@@ -106,20 +122,22 @@ li.ticked {
 
 #toggleBtnOn {
   position:relative;
-  top:-10px;
-  float: left;
+  margin-left: auto;
+  margin-right: auto;
   height: 60px;
   width: 60px;
   display:none;
+  cursor: pointer;
 }
 
 #toggleBtnOff {
   position:relative;
-  top:-10px;
-  float: left;
+  margin-left: auto;
+  margin-right: auto;
   height: 60px;
   width: 60px;
   display:block;
+  cursor: pointer;
 }
 
 /* Media Query ------ Tablet & Mobile View ------ */
